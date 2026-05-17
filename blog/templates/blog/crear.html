@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Receta</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8f0ff; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        h1 { text-align: center; color: #9e84cc; font-size: 2.2rem; margin-bottom: 25px; font-weight: bold; }
+        form { background-color: white; padding: 30px; border-radius: 20px; border: 1px solid #e6dbf5; box-sizing: border-box; width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 15px; }
+        label { font-weight: 600; color: #555; font-size: 14px; }
+        input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #e6dbf5; border-radius: 10px; background-color: #fbf9fe; font-family: inherit; font-size: 14px; box-sizing: border-box; }
+        .grid-macros { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .macro-field { display: flex; flex-direction: column; gap: 5px; }
+        h3 { color: #7d8cc4; font-size: 16px; margin: 15px 0 5px 0; border-bottom: 2px solid #f8f0ff; padding-bottom: 5px; }
+        button[type="submit"] { background-color: #e6dbf5; color: #4a4a4a; padding: 14px; border: none; border-radius: 50px; font-weight: bold; font-size: 15px; cursor: pointer; transition: all 0.2s ease; margin-top: 10px; }
+        button[type="submit"]:hover { background-color: #b09ed9; color: white; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #7d8cc4; font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Agregar Nueva Receta</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label>Nombre del Platillo:</label>
+        <input type="text" name="titulo" placeholder="Ej: Avena con plátano y cacao" required>
+        
+        <label>Ingredientes y Preparación:</label>
+        <textarea name="contenido" rows="5" placeholder="Describe el procedimiento paso a paso..." required></textarea>
+        
+        <label>Autor:</label>
+        <input type="text" name="autor" placeholder="Tu nombre" required>
+
+        <label>🔗 URL de la imagen (Cloudinary):</label>
+        <input type="text" name="imagen" placeholder="https://res.cloudinary.com/...">
+
+        <h3>📊 Información Nutrimental</h3>
+        
+        <div class="grid-macros">
+            <div class="macro-field"><label>Calorías:</label><input type="text" name="calorias" placeholder="e.g. 290 kcal"></div>
+            <div class="macro-field"><label>Proteínas:</label><input type="text" name="proteinas" placeholder="e.g. 9 g"></div>
+            <div class="macro-field"><label>Carbohidratos:</label><input type="text" name="carbohidratos" placeholder="e.g. 49 g"></div>
+            <div class="macro-field"><label>Azúcares:</label><input type="text" name="azucares" placeholder="e.g. 14 g"></div>
+            <div class="macro-field"><label>Sodio:</label><input type="text" name="sodio" placeholder="e.g. 110 mg"></div>
+            <div class="macro-field"><label>Vitaminas:</label><input type="text" name="vitaminas" placeholder="e.g. B6, C, Calcio"></div>
+        </div>
+        
+        <button type="submit">Guardar Receta 💜</button>
+    </form>
+    
+    <a href="/" class="back-link">✨ Volver al recetario</a>
+
+</body>
+</html>

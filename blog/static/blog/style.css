@@ -1,0 +1,96 @@
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #f8f0ff;
+   color: #4a4a4a;
+   margin: 0;
+   padding: 40px 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+h1 {
+   text-align: center;
+   color: #9e84cc;
+   font-size: 2.5rem;
+   margin-bottom: 25px;
+   font-weight: bold;
+}
+
+.menu-links {
+   text-align: center;
+   margin-bottom: 35px;
+}
+
+.menu-links a {
+   background-color: #e6dbf5;
+   color: #4a4a4a;
+   padding: 12px 28px;
+   border-radius: 50px;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 15px;
+   box-shadow: 0 4px 10px rgba(158, 132, 204, 0.15);
+   transition: all 0.2s ease;
+}
+
+.menu-links a:hover {
+   background-color: #b09ed9;
+   color: white;
+}
+
+.posts-container {
+   width: 100%;
+   max-width: 650px;
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.post {
+   background-color: white;
+   padding: 30px;
+   border-radius: 20px;
+   box-shadow: 0 10px 30px rgba(158, 132, 204, 0.1);
+   border: 1px solid #e6dbf5;
+   box-sizing: border-box;
+   width: 100%;
+}
+
+.post h2 {
+   color: #7d8cc4;
+   margin-top: 0;
+   font-size: 1.7rem;
+   margin-bottom: 12px;
+}
+
+.post p {
+   font-size: 15px;
+   line-height: 1.6;
+   color: #555;
+   white-space: pre-wrap;
+   margin-bottom: 15px;
+}
+
+.macros-box {
+   background-color: #fbf9fe;
+   padding: 15px;
+   border-radius: 12px;
+   font-size: 14px;
+   border-left: 4px solid #b09ed9;
+   line-height: 1.8;
+}
+
+.post small {
+   color: #aaa;
+   display: block;
+   margin-top: 15px;
+   font-size: 12px;
+}
+
+.autor-tag {
+   font-weight: bold;
+   color: #666;
+   margin-top: 5px;
+   font-size: 13px;
+}

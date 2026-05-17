@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Datos Combinados</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <h1>Datos combinados</h1>
+    <div class="menu-links">
+        <a href="/" style="color: #7d8cc4; font-weight: bold; text-decoration: none;">Volver al menú principal</a>
+    </div>
+    
+    <div id="posts" class="posts-container"></div>
+
+    <script>
+    async function cargarlatos() {
+        const resPosts = await fetch('/api/posts/');
+        const posts = await resPosts.json();
+        
+        const resUsers = await fetch('https://jsonplaceholder.typicode.com/users');
+        const users = await resUsers.json();
+        
+        let html = '';
+        posts.forEach((post, i) => {
+            const user = users[i % users.length];
+            html += `
+            <div class="post-card">
+                <h2>${post.titulo}</h2>
+                <p>${post.contenido}</p>
+                <small>Autor Receta: ${post.autor} | Nutriólogo Asignado: ${user.name}</small>
+            </div>
+            `;
+        });
+        document.getElementById('posts').innerHTML = html;
+    }
+    cargarlatos();
+    setInterval(cargarlatos, 10000);
+    </script>
+</body>
+</html>
